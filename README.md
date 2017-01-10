@@ -19,4 +19,4 @@ Do you like the controls on your 3DS, and want to use them with your Mac? 3dskey
 I only have a few games with controller support, and I know the configuration of 3dskey Mac is not perfect. If you have a game that recognizes 3dskey Mac as a controller, open an issue and let me know what it thinks each 3DS button is mapped to. Ideally we can copy a more popular controller's USB configuration and dramatically improve compatibility. I'm happy to say the Binding of Isaac: Rebirth works beautifully.
 
 ## How it works
-The Nintendo 3DS connects over your wifi network to your computer. Once connected, the 3dskey Mac app produced a virtual joystick, so your Mac games *think* there is a controller attached. Every time you push a button on the 3DS that information is sent over the network and forwarded to your games.
+The Nintendo 3DS connects over your wifi network to your computer. Once connected, the 3dskey Mac app produces a virtual USB joystick, so your Mac games *think* there is a controller attached. Every time you push a button on the 3DS that information is sent over the network and forwarded to your games.
