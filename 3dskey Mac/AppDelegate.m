@@ -16,7 +16,11 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    self.masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+    
+    // 2. Add the view controller to the Window's content view
+    [self.window.contentView addSubview:self.masterViewController.view];
+    self.masterViewController.view.frame = ((NSView*)self.window.contentView).bounds;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
