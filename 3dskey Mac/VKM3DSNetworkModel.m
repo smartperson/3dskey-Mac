@@ -29,7 +29,7 @@
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
     NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Received message %@ from %@", msg, address);
+//    NSLog(@"Received message %@ from %@", msg, address);
     if ([self checkUDPMessage:msg fromAddress:address]) { //if it's a 3DS, let's stop this UDP business
         [sock pauseReceiving];
         NSHost *host = [NSHost hostWithAddress:[GCDAsyncSocket hostFromAddress:address]];
@@ -88,8 +88,8 @@
 }
 
 - (void)socket:(GCDAsyncSocket *)sender didReadData:(NSData *)data withTag:(long)tag {
-    NSLog(@"Reading in the following:");
-    NSLog(@"%@", [data description]);
+//    NSLog(@"Reading in the following:");
+//    NSLog(@"%@", [data description]);
     unsigned int magic, pressedKeys, heldKeys, upKeys;
     signed int circleX, circleY;
     magic = CFSwapInt32LittleToHost(*(int*)[[data subdataWithRange:NSMakeRange(0, 4)] bytes]);
@@ -132,7 +132,7 @@
     if (heldKeys & BTN_CRIGHT) buttonData.cxAxis = UINT16_MAX;
     if (heldKeys & BTN_CLEFT) buttonData.cxAxis = 0;
     
-    NSLog(@"0x%x", buttonData.buttons);
+//    NSLog(@"0x%x", buttonData.buttons);
 //    NSLog(@"Magic: 0x%X", magic);
 //    NSLog(@"Keys Down: 0x%X", pressedKeys);
 //    NSLog(@"Keys Held: 0x%X", heldKeys);
