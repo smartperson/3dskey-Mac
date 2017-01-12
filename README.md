@@ -20,3 +20,10 @@ I only have a few games with controller support, and I know the configuration of
 
 ## How it works
 The Nintendo 3DS connects over your wifi network to your computer. Once connected, the 3dskey Mac app produces a virtual USB joystick, so your Mac games *think* there is a controller attached. Every time you push a button on the 3DS that information is sent over the network and forwarded to your games.
+
+## To-dos & questions
+* Disconnecting from the Mac first doesn't work
+* Full compatibility
+* Input button labelling (for use with joystick mappers)
+* CIA for 3DS app
+* Any way to get the home button mapped?
