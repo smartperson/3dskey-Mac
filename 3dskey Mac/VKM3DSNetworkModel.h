@@ -13,12 +13,18 @@
 #define LISTEN_PORT 19050
 
 typedef struct VKM3DSData_t {
-    Byte dpad; //down up left right, 4 bits padding
-    Byte xAxis;
-    Byte yAxis;
-    Byte cxAxis;
-    Byte cyAxis;
-    Byte buttons[2]; //A B X Y L R ZL ZR Start Select , 6 bits padding
+    UInt16 buttons;
+//    Byte dpadStartSelect; //up down left right start select
+//    Byte buttons; // LB/ZL RB/ZR -- -- A B X Y
+//    Byte lTrigger; //0 or 255
+//    Byte rTrigger; //0 or 255
+    uint16_t lTrigger; //0 or 255
+    uint16_t rTrigger; //0 or 255
+    uint16_t xAxis;
+    uint16_t yAxis;
+    uint16_t cxAxis;
+    uint16_t cyAxis;
+    Byte padding6Bytes[6];
 } VKM3DSData;
 
 typedef enum : NSUInteger {
@@ -43,16 +49,20 @@ typedef enum : NSUInteger {
 } Network3DSButtons;
 
 typedef enum : NSUInteger {
-    USB_A = 0x1,
-    USB_B = 0x2,
-    USB_X = 0x4,
-    USB_Y = 0x8,
-    USB_L = 0x10,
-    USB_R = 0x20,
-    USB_ZL = 0x40,
-    USB_ZR = 0x80,
-    USB_SEL = 0x1,
-    USB_START = 0x2
+    USB_DRIGHT = 1 << 3,//2,//0x8,
+    USB_DLEFT = 1 << 1,
+    USB_DUP = 1 << 15, //0x1
+    USB_DDOWN = 1 << 0, //0x2
+    USB_START = 1 << 6,
+    USB_SEL = 1 << 14,
+    USB_L = 1 << 0,
+    USB_R = 1 << 0,
+    USB_A = 1 << 4, //buttons
+    USB_B = 1 << 8, //buttons
+    USB_X = 1 << 10,
+    USB_Y = 1 << 12,
+    USB_ZL = 1 << 5,
+    USB_ZR = 1 << 9,
 } USB3DSButtons;
 
 @protocol VKM3DSDelegate <NSObject>

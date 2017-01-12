@@ -17,8 +17,8 @@
 #define FOOHID_DESTROY 1  // create selector
 #define FOOHID_SEND 2  // send selector
 
-#define DEVICE_NAME "Nintendo 3DS"
-#define DEVICE_SN "via Network"
+#define DEVICE_NAME "© Microsoft Controller"
+#define DEVICE_SN "3DS"
 
 @interface MasterViewController : NSViewController <VKM3DSDelegate>{
     io_connect_t connect;
