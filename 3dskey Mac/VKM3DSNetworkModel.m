@@ -66,8 +66,8 @@
     tcpSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error = nil;
 //    NSString *host = [GCDAsyncSocket hostFromAddress:address];
-//    NSString *hostString = [host address];
-    NSString *hostString = @"192.168.1.46";
+    NSString *hostString = [host address];
+//    NSString *hostString = @"192.168.1.46";
     [tcpSocket connectToHost:hostString onPort:LISTEN_PORT error:&error];
     if (error) {
         NSLog(@"Error connecting");
